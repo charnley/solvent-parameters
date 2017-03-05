@@ -1,0 +1,450 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+           (CHARMM) - Developmental Version 41a1     August 15, 2015            
+                             Git commit ID 04c0b29                              
+       Copyright(c) 1984-2014  President and Fellows of Harvard College
+                              All Rights Reserved
+       Current operating system: Linux-3.19.0-79-generic(x86_64)@awesome        
+                 Created on  3/5/17 at 15:35:08 by user: andersx     
+
+            Maximum number of ATOMS:    360720, and RESidues:      120240
+ RDTITL> * SCC-DFTB/PB CHARMM SCRIPT.
+ RDTITL> * TEST FOR CHARGE-DEPENDENT RADII
+ RDTITL> * XIAO ZHU, GUANHUA HOU, QIANG CUI
+ RDTITL> *
+  
+ CHARMM>     
+  
+ CHARMM>    IF ?SCCDFTB .NE. 1 THEN
+ RDCMND substituted energy or value "?SCCDFTB" to "1"
+ Comparing "1" and "1".
+ IF test evaluated as false.  Skip to ELSE or ENDIF
+  
+ CHARMM>     
+  
+ CHARMM>    bomb -5
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>     
+  
+ CHARMM>    stream datadir.def
+ VOPEN> Attempting to open::datadir.def::
+ OPNLGU> Unit  99 cannot be opened as DATADIR.DEF                                                                                                                                                                                                                                                     
+
+      ***** LEVEL  0 WARNING FROM <OPNLGU> *****
+      ***** "OPEN" not possible.
+      ******************************************
+      BOMLEV ( -5) IS NOT REACHED. WRNLEV IS  5
+
+ Parameter: IN1 <- "" <empty>
+  
+ CHARMM>     
+  
+ CHARMM>    OPEN UNIT 21 NAME top_all22_model.inp READ FORM
+ VOPEN> Attempting to open::top_all22_model.inp::
+ OPNLGU> Unit 21 opened for READONLY access to /home/andersx/projects/solvent-parameters/charmm_example/top_all22_model.inp
+  
+ CHARMM>    READ RTF card UNIT 21
+ MAINIO> Residue topology file being read from unit  21.
+ TITLE> *>> ALL-HYDROGEN TOPOLOGY FOR SMALL MODEL COMPOUNDS USED IN THE <<
+ TITLE> *>> DEVELOPMENT OF THE CHARMM22 PROTEIN ALL-HYDROGEN PARAMETERS <<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>>> JULY 1995 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> *>>>>>>>> DIRECT COMMENTS TO ALEXANDER D. MACKERELL JR. <<<<<<<<<<
+ TITLE> *>>>>>>> 410-706-7442 OR BITNET: ALEX,MMIRIS.AB.UMD.EDU <<<<<<<<<<
+ TITLE> * THESE FILES ARE A BETA RELEASE; ADDITIONAL PARAMETER DEVELOPMENT
+ TITLE> * AND TESTING MAY LEAD TO ALTERATION OF THE CONTENTS.
+ TITLE> *
+  
+ CHARMM>    CLOSE UNIT 21
+ VCLOSE: Closing unit   21 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    ! ...... Same parameter file ......
+ CHARMM>    OPEN UNIT 22 NAME par_all22_prot.inp READ FORM
+ VOPEN> Attempting to open::par_all22_prot.inp::
+ OPNLGU> Unit 22 opened for READONLY access to /home/andersx/projects/solvent-parameters/charmm_example/par_all22_prot.inp
+  
+ CHARMM>    READ PARA card UNIT 22
+
+          PARAMETER FILE BEING READ FROM UNIT 22
+ TITLE> *>>>> CHARMM22 ALL-HYDROGEN PARAMETER FILE FOR PROTEINS <<<<<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>>> JULY 1997 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> *>>>>>>> DIRECT COMMENTS TO ALEXANDER D. MACKERELL JR. <<<<<<<<<
+ TITLE> *>>>>>> 410-706-7442 OR EMAIL: ALEX,MMIRIS.AB.UMD.EDU  <<<<<<<<<
+ TITLE> *
+ PARRDR> WARNING: ATOMS IN BOND CE1  CE1   440.00000   1.34000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN BOND CE1  CE2   500.00000   1.34200 DONT EXIST
+ PARRDR> WARNING: ATOMS IN BOND CE1  CT2   365.00000   1.50200 DONT EXIST
+ PARRDR> WARNING: ATOMS IN BOND CE1  CT3   383.00000   1.50400 DONT EXIST
+ PARRDR> WARNING: ATOMS IN BOND CE2  CE2   510.00000   1.33000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN BOND HA1  CE1   360.50000   1.10000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN BOND HA2  CE2   365.00000   1.10000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE CE1  CE1  CT3    48.00000 123.50000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE CE1  CT2  CT3    32.00000 112.20000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE CE2  CE1  CT2    48.00000 126.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE CE2  CE1  CT3    47.00000 125.20000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE HA   CT2  CE1    45.00000 111.50000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE HA   CT3  CE1    42.00000 111.50000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE HA1  CE1  CE1    52.00000 119.50000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE HA1  CE1  CE2    42.00000 118.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE HA1  CE1  CT2    40.00000 116.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE HA1  CE1  CT3    22.00000 117.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE HA2  CE2  CE1    45.00000 120.50000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE HA2  CE2  CE2    55.50000 120.50000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN ANGLE HA2  CE2  HA2    19.00000 119.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL CE1  CE1  CT3  HA      0.03000    3   0.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL CE2  CE1  CT2  CT3     0.50000    3   0.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL CE2  CE1  CT2  HA      0.12000    3   0.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL CE2  CE1  CT3  HA      0.05000    3 180.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL CT3  CE1  CE2  HA2     5.20000    2 180.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL HA1  CE1  CE2  HA2     5.20000    2 180.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL HA1  CE1  CT2  HA      0.87000    3   0.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL HA1  CE1  CT2  CT3     0.12000    3   0.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL HA1  CE1  CT3  HA      0.34000    3   0.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL HA2  CE2  CE1  CT2     5.20000    2 180.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL X    CE1  CE1  X       5.20000    2 180.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN DIHEDRAL X    CE2  CE2  X       4.90000    2 180.00000 DONT EXIST
+ PARRDR> WARNING: ATOMS IN IMPHI HA2  CE2  CE2  HA2     3.00000    0   0.00000 DONT EXIST
+ PARRDR> WARNING: ATOM FOR NBOND CE1  DOESNT EXIST
+ PARRDR> WARNING: ATOM FOR NBOND CE2  DOESNT EXIST
+ PARRDR> WARNING: ATOM FOR NBOND HA1  DOESNT EXIST
+ PARRDR> WARNING: ATOM FOR NBOND HA2  DOESNT EXIST
+ PARRDR> WARNING: ATOM FOR NBOND HE   DOESNT EXIST
+ PARRDR> WARNING: ATOM FOR NBOND NE   DOESNT EXIST
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>    CLOSE UNIT 22
+ VCLOSE: Closing unit   22 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    set b etoh
+ Parameter: B <- "ETOH"
+  
+ CHARMM>     
+  
+ CHARMM>    read sequ etoh 1
+  
+ CHARMM>     
+  
+ CHARMM>    gene etoh SETUP NOANG NODIH
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+ GENPSF> Segment   1 has been generated. Its identifier is ETOH.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        1
+         Number of atoms         =        9   Number of groups     =        2
+         Number of bonds         =        8   Number of angles     =        0
+         Number of dihedrals     =        0   Number of impropers  =        0
+         Number of cross-terms   =        0
+         Number of HB acceptors  =        1   Number of HB donors  =        1
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    READ COOR CARD
+          SPATIAL COORDINATES BEING READ FROM UNIT  5
+ RDTITL> * TRAINING FOR N-BUTYLAMINE COMPUTATION
+ RDTITL> *  DATE:     3/13/ 9     15:51:10      CREATED BY USER: GUANHUA
+ RDTITL> *
+  
+ CHARMM>     
+  
+ CHARMM>    define qm sele segid @b end
+ Parameter: B -> "ETOH"
+ SELRPN>      9 atoms have been selected out of      9
+  
+ CHARMM>     
+  
+ CHARMM>    !refer select.doc
+ CHARMM>    scalar WMAIN set 1.0 sele (qm) .and. type O*  end
+ SELRPN>      1 atoms have been selected out of      9
+  
+ CHARMM>    scalar WMAIN set 2.0 sele (qm) .and. type N*  end
+ SELRPN>      0 atoms have been selected out of      9
+  
+ CHARMM>    scalar WMAIN set 3.0 sele (qm) .and. type C*  end
+ SELRPN>      2 atoms have been selected out of      9
+  
+ CHARMM>    scalar WMAIN set 4.0 sele (qm) .and. type H*  end
+ SELRPN>      6 atoms have been selected out of      9
+  
+ CHARMM>     
+  
+ CHARMM>    ! SCCDftb remove CHRG 0 sele qm end TEMP 0.00 -
+ CHARMM>    !      dmet 2 dmkl 0 d3rd hbon noqprint scfc scftol 1e-10
+ CHARMM>     
+  
+ CHARMM>    SCCDftb remove CHRG 0 sele qm end TEMP 0.00 -
+ CHARMM>         dmet 2 dmkl 0 noqprint scfc scftol 1e-10
+ SELRPN>      9 atoms have been selected out of      9
+ SCCINT> REMOve: Classical energies within QM atoms are removed.
+ SCCINT> No EXGRoup: QM/MM Elec. for link atom host only is removed.
+ SCCINT> No QINP: Charges will be based on atomic numbers.
+ SCCINT> Additional MKL-cores requested:           0
+ SCCINT> Use LAPACK DSYGVD as diagonalizer
+ SCCINT> NOQPrint: Initial and converged charges will NOT be printed
+ SCCINT> DO NOT USE CUT-OFF FOR QM/MM
+SCCINT> Tight SCF based on Mulliken
+------------------------------------------------
+SCCINT: Classical atoms excluded from the QM calculation:
+          NONE.
+SCCINT: Quantum mechanical atoms:
+              1 ETOH 1    ETOH C1  
+              2 ETOH 1    ETOH O1  
+              3 ETOH 1    ETOH HO1 
+              4 ETOH 1    ETOH H11 
+              5 ETOH 1    ETOH H12 
+              6 ETOH 1    ETOH C2  
+              7 ETOH 1    ETOH H21 
+              8 ETOH 1    ETOH H22 
+              9 ETOH 1    ETOH H23 
+SCCINT: Quantum mechanical link atoms:
+          NONE.
+SCCINT: Quantum mechanical GHO boundary atoms:
+          NONE.
+------------------------------------------------
+ FINDEL: Quantum atom     1 ETOH 1    ETOH C1    assigned to element:  C       6
+ FINDEL: Quantum atom     2 ETOH 1    ETOH O1    assigned to element:  O       8
+ FINDEL: Quantum atom     3 ETOH 1    ETOH HO1   assigned to element:  H       1
+ FINDEL: Quantum atom     4 ETOH 1    ETOH H11   assigned to element:  H       1
+ FINDEL: Quantum atom     5 ETOH 1    ETOH H12   assigned to element:  H       1
+ FINDEL: Quantum atom     6 ETOH 1    ETOH C2    assigned to element:  C       6
+ FINDEL: Quantum atom     7 ETOH 1    ETOH H21   assigned to element:  H       1
+ FINDEL: Quantum atom     8 ETOH 1    ETOH H22   assigned to element:  H       1
+ FINDEL: Quantum atom     9 ETOH 1    ETOH H23   assigned to element:  H       1
+
+  SCCDFN> Some atoms will be treated quantum mechanically.
+
+         The number of SCCDFTB        QM  atoms   =     9
+         The number of molecular mechanical atoms =     0
+         The number of MM atoms excluded from QM  =     0
+         Of which the number of QM/MM link atoms  =     0
+
+
+ CHARGE OF SCCDFTB ATOMS:            0
+ ** dftb **
+ enter mode, fmax, scf, scftol, read charge,dispers,EXT
+ Number of QM atoms in dylcao:           9
+ skip struc. file,atoms from charmm:           9           0
+ enter filename for output structure
+ DYLCAO> Mixer used is: Broyden mixer
+skfile file for pair  1  1 : /home/andersx/parameters/mio-1-1/O-O.skf                        
+skfile file for pair  1  2 : /home/andersx/parameters/mio-1-1/O-N.skf                        
+skfile file for pair  1  3 : /home/andersx/parameters/mio-1-1/O-C.skf                        
+skfile file for pair  1  4 : /home/andersx/parameters/mio-1-1/O-H.skf                        
+skfile file for pair  2  1 : /home/andersx/parameters/mio-1-1/N-O.skf                        
+skfile file for pair  2  2 : /home/andersx/parameters/mio-1-1/N-N.skf                        
+skfile file for pair  2  3 : /home/andersx/parameters/mio-1-1/N-C.skf                        
+skfile file for pair  2  4 : /home/andersx/parameters/mio-1-1/N-H.skf                        
+skfile file for pair  3  1 : /home/andersx/parameters/mio-1-1/C-O.skf                        
+skfile file for pair  3  2 : /home/andersx/parameters/mio-1-1/C-N.skf                        
+skfile file for pair  3  3 : /home/andersx/parameters/mio-1-1/C-C.skf                        
+skfile file for pair  3  4 : /home/andersx/parameters/mio-1-1/C-H.skf                        
+skfile file for pair  4  1 : /home/andersx/parameters/mio-1-1/H-O.skf                        
+skfile file for pair  4  2 : /home/andersx/parameters/mio-1-1/H-N.skf                        
+skfile file for pair  4  3 : /home/andersx/parameters/mio-1-1/H-C.skf                        
+skfile file for pair  4  4 : /home/andersx/parameters/mio-1-1/H-H.skf                        
+ Total charge of SCCDFTB molecule:           0
+ Total number of electrons:   20.0000000000000     
+  
+ CHARMM>     
+  
+ CHARMM>    ! mini abnr nstep 10000 tolgd 0.01
+ CHARMM>     
+  
+ CHARMM>    prnlev 5
+  
+ CHARMM>     
+  
+ CHARMM>    !-----------------------------------------------------------------------
+ CHARMM>    !-----------------------------------------------------------------------
+ CHARMM>    !scale the radius of non-hydrogen atoms for smoothing boundary calculation
+ CHARMM>    !Nina,Im,Roux, Biophysical Chemistry 78 (1999) 89-96
+ CHARMM>    !sw  0.1    0.2    0.3    0.4    0.5    0.6    0.7    0.8    0.9    1.0
+ CHARMM>    !a   0.979  0.965  0.952  0.939  0.927  0.914  0.901  0.888  0.875  0.861
+ CHARMM>    set factor 0.952
+ Parameter: FACTOR <- "0.952"
+  
+ CHARMM>    set sw     0.3
+ Parameter: SW <- "0.3"
+  
+ CHARMM>     
+  
+ CHARMM>    scalar wmain = radius
+  
+ CHARMM>    !stream @0PARM_SCCPB.DAT   !this is not really used in the charge dependent scheme
+ CHARMM>    scalar wmain set     1.7000  sele type  O*          end
+ SELRPN>      1 atoms have been selected out of      9
+  
+ CHARMM>    scalar wmain set     1.9400  sele type  N*          end
+ SELRPN>      0 atoms have been selected out of      9
+  
+ CHARMM>    scalar wmain set     1.8500  sele type  C*          end
+ SELRPN>      2 atoms have been selected out of      9
+  
+ CHARMM>    scalar wmain set     1.4700  sele type  H*          end
+ SELRPN>      6 atoms have been selected out of      9
+  
+ CHARMM>    !!!!!!!!!!!!!!!!
+ CHARMM>    scalar wmain add  @sw
+ Parameter: SW -> "0.3"
+  
+ CHARMM>    scalar wmain mult @factor
+ Parameter: FACTOR -> "0.952"
+  
+ CHARMM>    scalar wmain set 0.0 sele type H* end
+ SELRPN>      6 atoms have been selected out of      9
+  
+ CHARMM>    scalar wmain stat select .not. type H* end
+ SELRPN>      3 atoms have been selected out of      9
+ Statistics for    3 selected atoms:
+       minimum =    1.90400      maximum =    2.04680     weight =    3.00000    
+       average =    1.99920      variance=   6.731657E-02 total  =    5.99760    
+  
+ CHARMM>    define check select (.not. type H*) .and. (prop wmain .eq. 0.0) show end
+ The following atoms are currently set:
+SEGId RESId RESName  .. TYPEs ..
+ SELRPN>      0 atoms have been selected out of      9
+  
+ CHARMM>    if ?nsel ne 0  stop
+ RDCMND substituted energy or value "?NSEL" to "0"
+ Comparing "0" and "0".
+ IF test evaluated as false.  Skipping command
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+      3.18722119      0.00000000      0.00000000
+                      4.52342514     -0.00000653
+                                     14.45822802
+
+ Transpose of the rotation matrix
+     1.000000   -0.000001    0.000000
+     0.000001    1.000000    0.000000
+     0.000000    0.000000    1.000000
+ CENTER OF ATOMS BEFORE TRANSLATION    -0.00000     0.00000     0.00000
+ VERY LITTLE ROTATION: NO AXIS FOUND
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>     
+  
+ CHARMM>    !Solvation Free Energy
+ CHARMM>    PBEQ
+ 
+   Calculations with the Poisson-Boltzmann Equation 
+ 
+  
+   PBEQ>       ! OPEN UNIT 21 name @0chrg_radius_scc.dat READ FORM
+  
+   PBEQ>       OPEN UNIT 21 name chrg_radius_scc.dat READ FORM
+ VOPEN> Attempting to open::chrg_radius_scc.dat::
+ OPNLGU> Unit 21 opened for READONLY access to /home/andersx/projects/solvent-parameters/charmm_example/chrg_radius_scc.dat
+  
+   PBEQ>       SOLVE bspl epsw 80.0 epsp 1.0 nclx 61 ncly 61 nclz 61 -
+   PBEQ>       dcel 0.2  maxi 20000 conc 0.0 temp 300.00  -
+   PBEQ>       pstl  0.001 urad 21 IGAS -
+   PBEQ>       force smooth swin @sw npbe 1 sten 0.005 -
+   PBEQ>       chdr !activate charge-dependence of atomic radii
+ Parameter: SW -> "0.3"
+
+   Calculation with      9 atoms
+
+   LINEARIZED PBEQ SOLVER: Successive OverRelaxation (SOR) method
+
+   ITERATION PARAMETERs
+   Maximum # iterations          (MAXITS) =   20000
+   Tolerance of convergence        (DEPS) =.200E-05
+   Mixing factor            (LAMBDA,DOME) =   1.000
+
+   CHARGE DISTRIBUTION METHOD: the Cardinal B-spline interpolation
+
+   BOUNDARY POTENTIAL CALCULATION METHOD
+   The Debye-Huckel approximation for all boundary points
+
+   PHYSICAL PARAMETERs
+   Solvent probe radius          (WATR)   =    0.000 [Angs]
+   Ion exclusion radius (Stern layer)     =    0.000 [Angs]
+   Solvent dielectric constant   (EPSW)   =   80.000
+   Protein dielectric constant   (EPSP)   =    1.000
+   Salt concentration            (CONC)   =    0.000 [moles]/[liter]
+   Temperature                   (TEMP)   =  300.000 [K]
+   Debye-Huckel factor           (KAPPA2) =    0.000 [1/Angs**2]
+
+   NUMBER OF GRID POINTS:    61    61    61
+   Box in X from   -6.000 to    6.000
+   Box in Y from   -6.000 to    6.000
+   Box in Z from   -6.000 to    6.000
+
+   SCC-PB: Charge dependant radii will be used.
+   Charge dependant radii parameters will be
+   read from unit  21
+
+   Dielectric Smoothing Function will be applied.
+   Dielectric Smoothing Region   (2*SWIN) = +/-0.300 from atomic surface
+   PBEQ will be carried out every  1 step during Minimization or Dynamics
+   Surface Tension Coefficient   (STEN)   =    0.005 [KCAL/MOL/A^2]
+
+   Constructing all space-dependent functions: EPS =   1.000
+   Number of iterations:     2
+
+   Constructing all space-dependent functions: EPS =  80.000
+   Number of iterations:     2
+
+   The Free Energy of Charging in Solvent  =       0.00000 [KCAL/MOL]
+   The Free Energy of Charging in vacuum   =       0.00000 [KCAL/MOL]
+   The Electrostatic Solvation Free Energy =       0.00000 [KCAL/MOL]
+EGLCAO> SCC =  10  dE = 1.84208E-12 H  dQ(max) = 2.39078E-10  geom =       0  imd =     0
+EGLCAO> SCC =   8  dE = 4.70628E-11 H  dQ(max) = 8.70606E-10  geom =       0  imd =     0
+EGLCAO> SCC =   8  dE = 1.87867E-11 H  dQ(max) = 2.15623E-10  geom =       0  imd =     0
+EGLCAO> SCC =   7  dE = 7.17648E-12 H  dQ(max) = 2.56513E-10  geom =       0  imd =     0
+EGLCAO> SCC =   7  dE = 2.51887E-12 H  dQ(max) = 4.38053E-11  geom =       0  imd =     0
+EGLCAO> SCC =   6  dE = 3.80247E-11 H  dQ(max) = 4.95189E-10  geom =       0  imd =     0
+EGLCAO> SCC =   6  dE = 8.29736E-12 H  dQ(max) = 1.12808E-10  geom =       0  imd =     0
+EGLCAO> SCC =   2  dE = 9.94760E-14 H  dQ(max) = 8.16236E-13  geom =       0  imd =     0
+
+   Molecular Surface =      99.31201 [A^2]
+   The Nonpolar Solvation Free Energy =      0.49656 [KCAL/MOL]
+
+   The Quantum Mechanical Solvation Energy  =      -4.37489 [KCAL/MOL]
+
+   The Total Solvation Energy  =      -3.87833 [KCAL/MOL]
+  
+   PBEQ>     
+  
+   PBEQ>    ! This will only give a solvation free energy
+   PBEQ>    END
+  
+ CHARMM>       CLOSE UNIT 21
+ VCLOSE: Closing unit   21 with status "KEEP"
+  
+ CHARMM>    PBEQ
+ 
+   Calculations with the Poisson-Boltzmann Equation 
+ 
+  
+   PBEQ>     
+  
+   PBEQ>     
+  
+   PBEQ>    STOP
+$$$$$$  New timer profile $$$$$
+            SCC-DFTB Fock-diagon            0.00 Other:            0.00
+            SCC-DFTB Mulliken-ch            0.00 Other:            0.00
+            SCC-DFTB gradient               0.00 Other:            0.00
+         SCC-DFTB energy/grad            0.01 Other:            0.00
+      INTRNL energy                   0.01 Other:            0.00
+   Energy time                     0.01 Other:            0.00
+ Total time                      1.91 Other:            1.90
+
+                    NORMAL TERMINATION BY NORMAL STOP
+                    MOST SEVERE WARNING WAS AT LEVEL  0
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:     1.91  SECONDS 
+                         CPU TIME:     1.92  SECONDS 
